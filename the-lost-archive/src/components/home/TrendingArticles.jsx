@@ -8,13 +8,12 @@ const TrendingArticles = async() => {
     const slicedArticles=articles.slice(0,6);
 
     return (
-        <div className="py-24  text-stone-900 border-t border-stone-200">
+        <div className="py-10 text-stone-900 border-t border-stone-200 w-11/12 mx-auto">
             <div className="container mx-auto px-6 lg:px-12">
                 
-                
-                <div className="max-w-4xl mb-20">
-                <h2 className="text-5xl md:text-6xl font-serif tracking-tight mb-6">
-                    The Master Index
+                <div className="max-w-4xl mb-10">
+                <h2 className="text-4xl md:text-5xl font-serif tracking-tight mb-6">
+                    The Master <span className='text-amber-600'>Index</span>
                 </h2>
                 <div className="w-24 h-px bg-stone-400 mb-8" />
                 <p className="text-xl font-serif italic text-stone-600 leading-relaxed max-w-2xl">
@@ -25,7 +24,7 @@ const TrendingArticles = async() => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
                 {slicedArticles.map((item) => (
-                    <div key={item._id} className="flex flex-col group">
+                    <div key={item._id} className="flex flex-col group shadow-md p-3">
                     
                     
                     <div className="relative aspect-4/3 overflow-hidden mb-8 bg-stone-200 shadow-sm border border-stone-200">
@@ -33,7 +32,7 @@ const TrendingArticles = async() => {
                         src={item.image}
                         alt={item.title}
                         fill
-                        className="object-cover transition-all duration-1000 ease-in-out transform group-hover:scale-105"
+                        className="object-cover h-auto transition-all duration-1000 ease-in-out transform group-hover:scale-105"
                         />
 
                         <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none" />

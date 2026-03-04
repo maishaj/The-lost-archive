@@ -8,11 +8,15 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
-      // If you decide to go back to Unsplash later, add this too:
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
         port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'plus.unsplash.com',
         pathname: '/**',
       },
     ],
