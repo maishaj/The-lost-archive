@@ -1,10 +1,13 @@
+"use client"
 import React from 'react';
 import NavLink from '../buttons/NavLink';
 import Logo from './Logo';
 import Link from 'next/link';
+import AuthButtons from '../buttons/AuthButtons';
 
 
 const Navbar = () => {
+
 
     const nav=<>
     <li>
@@ -42,9 +45,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link href={"/login"}>
-                  <button className='my-btn my-btn:hover'>Login</button>
-                </Link>
+                <AuthButtons></AuthButtons>
             </div>
        </div>
     );

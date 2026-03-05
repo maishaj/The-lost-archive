@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import NextAuthProvider from "@/provider/NextAuthProvider";
 
 const libreBaskerville=Libre_Baskerville({
    weight:["400","700"],
@@ -15,7 +16,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <NextAuthProvider>
+      <html lang="en">
       <body className={`${libreBaskerville.className} antialiased`}>
         <header className="sticky top-0 z-50">
           <Navbar></Navbar>
@@ -27,6 +29,7 @@ export default function RootLayout({ children }) {
           <Footer></Footer>
         </footer>
       </body>
-    </html>
+      </html>
+    </NextAuthProvider>
   );
 }

@@ -13,7 +13,7 @@ const ExplorePage = async() => {
         
         {/* 1. Header Section */}
         <header className="mb-16 border-l-4 border-stone-900 pl-8">
-          <h1 className="text-5xl md:text-6xl font-serif text-stone-900 mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-serif text-stone-900 mb-4 tracking-tight">
             The Master Index
           </h1>
           <p className="text-lg text-stone-500 font-serif italic max-w-2xl leading-relaxed">
@@ -22,7 +22,7 @@ const ExplorePage = async() => {
           </p>
         </header>
 
-        {/* 2. Search & Filter Bar (UI Only) */}
+        {/* 2. Search & Filter Bar */}
         <div className="flex flex-col md:flex-row gap-4 mb-12">
           <div className="relative grow group">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 group-focus-within:text-amber-700 transition-colors" size={18} />
@@ -38,8 +38,8 @@ const ExplorePage = async() => {
           </button>
         </div>
 
-        {/* 3. The Grid (Minimum 6 cards) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* 3. The Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {articles.map((item) => (
             <div key={item._id} className="group bg-white border border-stone-200 flex flex-col hover:shadow-2xl hover:-translate-y-1 transition-all duration-500">
               
@@ -70,7 +70,7 @@ const ExplorePage = async() => {
                   {item.excerpt || item.description}
                 </p>
 
-                {/* Price / Meta Section */}
+                {/* Price */}
                 <div className="mt-auto pt-6 border-t border-stone-100 flex items-center justify-between">
                   <div className="flex flex-col">
                     <span className="text-[9px] uppercase tracking-widest text-stone-400 font-bold">Rarity Score</span>
@@ -90,7 +90,7 @@ const ExplorePage = async() => {
           ))}
         </div>
       </div>
-    </div>
+        </div>
     );
 };
 

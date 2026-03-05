@@ -7,30 +7,25 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  /* The lime green from the Agrob logo/button */
   --color-primary: #8ED232; 
-  /* The dark text/heading color */
   --color-secondary: #2D3134; 
 }
 
 .my-btn {
-  /* Matches the lime green 'Contact' button */
+ 
   background-color: #8ED232;
   border-color: #8ED232;
   color: white;
-  border-radius: 9999px; /* Pill shape like the image */
   padding: 0.5rem 0.9rem;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .my-btn:hover {
-  /* A slightly darker green for the hover state */
   background-color: #7ab52b;
   border-color: #7ab52b;
 }
 
-/* Optional: Matching the "Learn More" link color */
 .learn-more {
   color: #8ED232;
   font-weight: bold;
