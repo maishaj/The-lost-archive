@@ -4,16 +4,19 @@ import { uploadImageToImgBB } from '@/lib/upload';
 import { Camera, Loader2, UploadCloud } from 'lucide-react';
 import Image from 'next/image';
 import { postUser } from '@/actions/server/auth';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import SocialButton from './SocialButton';
+import { signIn } from 'next-auth/react';
 
 const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ text: "", isError: false });
   const [preview, setPreview] = useState(null);
 
-  const router=useRouter();
+  //const router=useRouter();
+  const params=useSearchParams();
+  const callbackUrl=params.get("callbackUrl") || "/";
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -44,8 +47,13 @@ const RegisterForm = () => {
       // 3. Save to MongoDB
       const result = await postUser(userData);
       if(result.insertedId){
-          alert("Successful register");
-          router.push("/login");
+          //router.push("/login");
+        const result=await signIn("credentials",{
+          email:formData.get("email"),
+          password:formData.get("password"),
+          callbackUrl:callbackUrl
+          })
+        alert("Successful register");
       }
       
     } catch (err) {

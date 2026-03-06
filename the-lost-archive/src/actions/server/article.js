@@ -1,4 +1,6 @@
+"use server"
 import { collections, dbconnect } from "@/lib/dbConnect"
+import { ObjectId } from "mongodb";
 
 const formatDocument=(doc)=>{
     if(!doc)
@@ -9,4 +11,27 @@ const formatDocument=(doc)=>{
 export const getArticles=async()=>{
     const articles=await dbconnect(collections.ARTICLES).find().toArray();
     return articles.map(formatDocument)
+}
+
+export const getSingleArticle=async(id)=>{
+
+    if(id.length!=24){
+        return {};
+    }
+
+    const query={_id: new ObjectId(id)};
+    const article=await dbconnect(collections.ARTICLES).findOne(query);
+    return formatDocument(article);
+}
+
+export const postArticles=async(payload)=>{
+
+    const newArticle={
+        ...payload,
+        datePublished:new Date(),
+        isTrending: payload.isTrending === 'true',
+    }
+
+    const result=await dbconnect(collections.ARTICLES).insertOne(newArticle);
+    return result.acknowledged;
 }

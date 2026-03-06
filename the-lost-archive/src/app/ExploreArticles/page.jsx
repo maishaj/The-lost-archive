@@ -1,6 +1,7 @@
 import { getArticles } from '@/actions/server/article';
 import { ArrowUpRight, Filter, Search } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const ExplorePage = async() => {
@@ -8,7 +9,7 @@ const ExplorePage = async() => {
     const articles=await getArticles();
 
     return (
-        <div className="bg-[#F9F7F2] min-h-screen py-20 px-6">
+      <div className="bg-[#F9F7F2] min-h-screen py-20 px-6">
       <div className="container mx-auto max-w-7xl">
         
         {/* 1. Header Section */}
@@ -78,12 +79,14 @@ const ExplorePage = async() => {
                   </div>
                   
                   {/* Details Button */}
-                  <button className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold group-hover:text-amber-700 transition-all">
+                 <Link href={`/ExploreArticles/${item._id}`}>
+                    <button className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold group-hover:text-amber-700 transition-all">
                     View Details
                     <div className="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-all">
                        <ArrowUpRight size={14} />
                     </div>
                   </button>
+                 </Link>
                 </div>
               </div>
             </div>
