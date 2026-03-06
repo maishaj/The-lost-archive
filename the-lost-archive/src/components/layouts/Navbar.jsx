@@ -20,10 +20,13 @@ const Navbar = () => {
         <NavLink href={"/AddArticle"}>Add Product</NavLink>
     </li>
     <li>
-        <NavLink href={"/about"}>About</NavLink>
+        <NavLink href={"/ManageArticles"}>Manage Articles</NavLink>
     </li>
     <li>
-        <NavLink href={"/contact"}>Contact</NavLink>
+        <NavLink href={"/AboutPage"}>About</NavLink>
+    </li>
+    <li>
+        <NavLink href={"/Contact"}>Contact Us</NavLink>
     </li>
     </>
 

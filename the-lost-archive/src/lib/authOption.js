@@ -3,7 +3,12 @@ import { loginUser } from "@/actions/server/auth";
 import CredentialsProvider from "next-auth/providers/credentials"
 import { collections, dbconnect } from "./dbConnect";
 export const authOptions = {
-  // Configure one or more authentication providers
+
+  secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    strategy: "jwt",
+  },
+
   providers: [
      CredentialsProvider({
       name: 'Credentials',
@@ -24,6 +29,24 @@ export const authOptions = {
   ],
 
   callbacks: {
+
+  // 1. Map the user data into the JWT token
+  async jwt({token,user}){
+    if(user){
+      token.email=user.email;
+      token.name=user.name;
+    }
+    return token;
+  },
+
+  // 2. Map the JWT token data into the Session object
+  async ({session,token}){
+     if(token){
+      session.user.email=token.email;
+      session.user.name=token.name;
+     }
+     return session;
+  },
   async signIn({ user, account, profile, email, credentials }) {
 
     const isExist=await dbconnect(collections.USERS).findOne(

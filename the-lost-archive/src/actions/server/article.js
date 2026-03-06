@@ -35,3 +35,16 @@ export const postArticles=async(payload)=>{
     const result=await dbconnect(collections.ARTICLES).insertOne(newArticle);
     return result.acknowledged;
 }
+
+export const getMyArticles=async(email)=>{
+    if(!email){
+        return [];
+    }
+    const articles=await dbconnect(collections.ARTICLES).find({userEmail:email}).sort({datePublished:-1}).toArray();
+    return articles.map(article=>formatDocument(article));
+}
+
+export const deleteArticles=async(id)=>{
+   const result=await dbconnect(collections.ARTICLES).deleteOne({_id:new ObjectId(id)});
+   return result.deletedCount;
+}
