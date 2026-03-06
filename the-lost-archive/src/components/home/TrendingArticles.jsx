@@ -2,6 +2,7 @@ import { getArticles } from '@/actions/server/article';
 import Image from 'next/image';
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
 
 const TrendingArticles = async() => {
     const articles=await getArticles();
@@ -32,6 +33,7 @@ const TrendingArticles = async() => {
                         src={item.image}
                         alt={item.title}
                         fill
+                        sizes="100vw"
                         className="object-cover h-auto transition-all duration-1000 ease-in-out transform group-hover:scale-105"
                         />
 
@@ -59,14 +61,16 @@ const TrendingArticles = async() => {
                         </p>
 
                        
-                        <div className="mt-auto flex items-center justify-between pt-6 border-t border-stone-100">
-                        <span className="text-xs uppercase tracking-widest font-bold group-hover:tracking-[0.25em] transition-all duration-300">
-                            {item.cta}
-                        </span>
-                        <div className="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-all duration-300">
-                            <ArrowUpRight size={16} />
-                        </div>
-                        </div>
+                        <Link href={`/ExploreArticles/${item._id}`}>
+                            <div className="mt-auto flex items-center justify-between pt-6 border-t border-stone-100">
+                                <span className="text-xs uppercase tracking-widest font-bold group-hover:tracking-[0.25em] transition-all duration-300">
+                                    {item.cta}
+                                </span>
+                                <div className="w-10 h-10 rounded-full border border-stone-200 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-all duration-300">
+                                    <ArrowUpRight size={16} />
+                                </div>
+                            </div>
+                        </Link>
                     </div>
                     </div>
                 ))}

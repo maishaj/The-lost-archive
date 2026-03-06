@@ -6,6 +6,7 @@ import SocialButton from './SocialButton';
 import { signIn } from "next-auth/react"
 import Swal from 'sweetalert2';
 import { useRouter, useSearchParams } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 const LoginForm = () => {
 
@@ -27,28 +28,22 @@ const LoginForm = () => {
        const password=formData.get("password");
 
        const result=await signIn('credentials', { 
-         //redirect:false,
          email:email,
          password:password,
          callbackUrl:params.get("callbackUrl") || "/"
        });
 
        if (!result.ok) {
-            Swal.fire({
-            text: "Invalid Credentials!",
-            icon: "error"
-            });
+            toast.error("You provided wrong credentials!");
             setLoading(false);
         } else {
-            Swal.fire({
-            text: "You logged in successfully!",
-            icon: "success"
-            });
+            toast.success("You logged in successfully!");
+            setLoading(false);
         }
     }
 
     return (
-        <div className="bg-white border border-stone-200 p-10 shadow-xl relative">
+        <div className="bg-white border border-stone-200 p-15 shadow-xl relative mt-10 mb-10">
         
         <header className="mb-8 text-center border-b border-stone-100 pb-6">
             <h2 className="text-3xl font-serif text-stone-900 italic">Login Now</h2>
@@ -58,7 +53,7 @@ const LoginForm = () => {
         </header>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-5">
+            <div className="space-y-5 max-w-md mx-auto">
             <div>
                 <label className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1 block">
                 Email

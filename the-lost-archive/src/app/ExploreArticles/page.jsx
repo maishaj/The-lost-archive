@@ -50,6 +50,8 @@ const ExplorePage = async() => {
                   src={item.image}
                   alt={item.title}
                   fill
+                  sizes="100vw"
+                  priority
                   className="object-cover saturate-[0.7] sepia-[0.2] group-hover:saturate-100 group-hover:sepia-0 transition-all duration-700"
                 />
                 <div className="absolute top-4 left-4 bg-stone-900/80 backdrop-blur-md text-[#F5F2ED] text-[9px] uppercase tracking-[0.2em] px-2 py-1">

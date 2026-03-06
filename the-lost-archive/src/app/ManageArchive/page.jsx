@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const ManageArticles = async () => {
+const ManageArchive = async () => {
   const session = await getServerSession(authOptions);
   const articles = await getMyArticles(session?.user?.email);
   console.log(session?.user?.email);
@@ -43,16 +43,16 @@ const ManageArticles = async () => {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-stone-50 border-b border-stone-200">
-                  <th className="p-5 text-[10px] uppercase tracking-widest text-stone-400 font-bold">
+                  <th className="p-5 text-[12px] uppercase tracking-widest text-stone-500 font-bold">
                     Artifact
                   </th>
-                  <th className="p-5 text-[10px] uppercase tracking-widest text-stone-400 font-bold hidden md:table-cell">
+                  <th className="p-5 text-[12px] uppercase tracking-widest text-stone-500 font-bold hidden md:table-cell">
                     Period
                   </th>
-                  <th className="p-5 text-[10px] uppercase tracking-widest text-stone-400 font-bold hidden lg:table-cell">
+                  <th className="p-5 text-[12px] uppercase tracking-widest text-stone-500 font-bold hidden lg:table-cell">
                     ID
                   </th>
-                  <th className="p-5 text-[10px] uppercase tracking-widest text-stone-400 font-bold text-right">
+                  <th className="p-5 text-[12px] uppercase tracking-widest text-stone-500 font-bold text-right">
                     Actions
                   </th>
                 </tr>
@@ -82,19 +82,19 @@ const ManageArticles = async () => {
                         </div>
                       </div>
                     </td>
-                    <td className="p-5 text-sm font-serif italic text-stone-600 hidden md:table-cell">
+                    <td className="p-5 text-md font-serif italic text-stone-600 hidden md:table-cell">
                       {item.period}
                     </td>
-                    <td className="p-5 text-[10px] font-mono text-stone-400 hidden lg:table-cell">
+                    <td className="p-5 text-md font-mono text-stone-600 hidden lg:table-cell">
                       {item.accessionNumber}
                     </td>
                     <td className="p-5">
                       <div className="flex justify-end items-center gap-4">
                         <Link
                           href={`/ExploreArticles/${item._id}`}
-                          className="p-2 text-stone-400 hover:text-stone-900 transition-colors"
+                          className="p-2 text-stone-600 hover:text-stone-900 transition-colors"
                         >
-                          <Eye size={18} />
+                          <Eye size={18} className="hover:text-red-800" />
                         </Link>
                         <DeleteButton id={item._id} />
                       </div>
@@ -110,4 +110,4 @@ const ManageArticles = async () => {
   );
 };
 
-export default ManageArticles;
+export default ManageArchive;

@@ -2,24 +2,33 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import Swal from 'sweetalert2';
+import { useSession } from 'next-auth/react';
+import { postMessages } from '@/actions/server/article';
+import toast from 'react-hot-toast';
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
+  const {data:session}=useSession();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      Swal.fire({
-        title: "Message Received",
-        text: "The curators will review your inquiry shortly.",
-        icon: "success",
-        confirmButtonColor: "#1c1917",
-      });
+    const formData=new FormData(e.target);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("msg"),
+      createdAt: new Date(),
+    };
+    const success=await postMessages(data);
+    if(success){
+      toast.success("Your message is sent successfully!");
       e.target.reset();
-    }, 1500);
+      setLoading(false);
+    }
+    
   };
 
   return (
@@ -69,28 +78,31 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-[10px] uppercase tracking-widest font-bold mb-2">Your Name</label>
+                  <label className="block text-[12px] uppercase tracking-widest font-bold mb-2">Your Name</label>
                   <input 
                     type="text" 
+                    name='name'
                     required 
-                    className="w-full bg-stone-50 border border-stone-200 p-4 focus:outline-none focus:border-amber-800 transition-colors"
-                    placeholder="e.g. Julian Vane"
+                    className="w-full bg-stone-50 border text-[16px] border-stone-200 p-2 focus:outline-none focus:border-amber-800 transition-colors"
+                    placeholder="Maisha Jannath"
                   />
                 </div>
                 <div>
-                  <label className="block text-[10px] uppercase tracking-widest font-bold mb-2">Email Address</label>
+                  <label className="block text-[12px] uppercase tracking-widest font-bold mb-2">Email Address</label>
                   <input 
                     type="email" 
-                    required 
-                    className="w-full bg-stone-50 border border-stone-200 p-4 focus:outline-none focus:border-amber-800 transition-colors"
-                    placeholder="julian@history.com"
+                    name='email'
+                    readOnly
+                    defaultValue={session?.user?.email || ""}
+                    className="w-full bg-stone-50 border border-stone-200 text-[16px] p-2 focus:outline-none focus:border-amber-800 transition-colors"
+                    placeholder="maishajannat388@gmail.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[10px] uppercase tracking-widest font-bold mb-2">Subject of Inquiry</label>
-                <select className="w-full bg-stone-50 border border-stone-200 p-4 focus:outline-none focus:border-amber-800 transition-colors appearance-none">
+                <label className="block text-[12px] uppercase tracking-widest font-bold mb-2">Subject of Inquiry</label>
+                <select name='subject' className="w-full bg-stone-50 border border-stone-200 text-[16px] p-2 focus:outline-none focus:border-amber-800 transition-colors appearance-none">
                   <option>Artifact Verification</option>
                   <option>Cipher Submission</option>
                   <option>Technical Support</option>
@@ -99,11 +111,12 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-[10px] uppercase tracking-widest font-bold mb-2">Your Message</label>
+                <label className="block text-[12px] uppercase tracking-widest font-bold mb-2">Your Message</label>
                 <textarea 
                   rows="6" 
                   required 
-                  className="w-full bg-stone-50 border border-stone-200 p-4 focus:outline-none focus:border-amber-800 transition-colors resize-none"
+                  name='msg'
+                  className="w-full bg-stone-50 border border-stone-200 text-[16px] p-2 focus:outline-none focus:border-amber-800 transition-colors resize-none"
                   placeholder="Describe the artifact or inquiry in detail..."
                 ></textarea>
               </div>

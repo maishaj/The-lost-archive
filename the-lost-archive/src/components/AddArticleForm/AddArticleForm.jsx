@@ -3,12 +3,16 @@ import { postArticles } from '@/actions/server/article';
 import { uploadImageToImgBB } from '@/lib/upload';
 import { Loader2 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const AddArticleForm = () => {
 
     const [loading,setLoading]=useState(false);
     const {data:session}=useSession();
+
+    const router=useRouter();
 
     const handleSubmit=async(e)=>{
        e.preventDefault();
@@ -41,13 +45,13 @@ const AddArticleForm = () => {
           //post to db
           const success=await postArticles(articleData);
           if(success){
-            alert("Entry Digitized Successfully");
+            toast.success("Your article is added to archive successfully!");
+            e.target.reset();
           }
 
        }
        catch(error){
-          console.error(error);
-         alert("Archive entry failed.");
+          toast.error(error);
        }
        finally{
         setLoading(false);
@@ -72,7 +76,7 @@ const AddArticleForm = () => {
                     <label className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1 block">Headline</label>
                     <input name="headline" required className="w-full bg-transparent border-b border-stone-300 py-2 focus:outline-none focus:border-amber-700 font-serif" placeholder="Whispers of the Nile" />
                 </div>
-                {/* Added Subtitle Field */}
+                
                 <div>
                     <label className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1 block">Subtitle</label>
                     <input name="subtitle" required className="w-full bg-transparent border-b border-stone-300 py-2 focus:outline-none focus:border-amber-700 font-serif" placeholder="A key to ancient tongues..." />
@@ -82,7 +86,7 @@ const AddArticleForm = () => {
                         <label className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1 block">Accession Number</label>
                         <input name="accessionNumber" required className="w-full bg-transparent border-b border-stone-300 py-2 focus:outline-none focus:border-amber-700 font-serif" placeholder="ARC-2026-001" />
                     </div>
-                    {/* Added CTA Field */}
+                   
                     <div>
                         <label className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1 block">Call to Action</label>
                         <input name="cta" required className="w-full bg-transparent border-b border-stone-300 py-2 focus:outline-none focus:border-amber-700 font-serif" placeholder="Decipher Script" />
@@ -106,7 +110,7 @@ const AddArticleForm = () => {
                         <input name="category" required className="w-full bg-transparent border-b border-stone-300 py-2 focus:outline-none focus:border-amber-700 font-serif" placeholder="Linguistics" />
                     </div>
                 </div>
-                {/* Added Excerpt Field */}
+                
                 <div>
                     <label className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1 block">Brief Excerpt</label>
                     <input name="excerpt" required className="w-full bg-transparent border-b border-stone-300 py-2 focus:outline-none focus:border-amber-700 font-serif" placeholder="Traces of lost voices etched in stone..." />

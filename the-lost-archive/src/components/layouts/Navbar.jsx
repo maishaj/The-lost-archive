@@ -17,12 +17,6 @@ const Navbar = () => {
         <NavLink href={"/ExploreArticles"}>Explore</NavLink>
     </li>
     <li>
-        <NavLink href={"/AddArticle"}>Add Product</NavLink>
-    </li>
-    <li>
-        <NavLink href={"/ManageArticles"}>Manage Articles</NavLink>
-    </li>
-    <li>
         <NavLink href={"/AboutPage"}>About</NavLink>
     </li>
     <li>

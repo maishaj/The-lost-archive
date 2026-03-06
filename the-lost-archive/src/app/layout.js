@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import NextAuthProvider from "@/provider/NextAuthProvider";
+import { Toaster } from "react-hot-toast";
 
 const libreBaskerville=Libre_Baskerville({
    weight:["400","700"],
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         <footer>
           <Footer></Footer>
         </footer>
+        <Toaster  position="top-center" areverseOrder={false}/>
       </body>
       </html>
     </NextAuthProvider>

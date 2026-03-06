@@ -48,3 +48,12 @@ export const deleteArticles=async(id)=>{
    const result=await dbconnect(collections.ARTICLES).deleteOne({_id:new ObjectId(id)});
    return result.deletedCount;
 }
+
+export const postMessages=async(payload)=>{
+
+   const newMsg={
+      ...payload
+   }
+   const result=await dbconnect(collections.MESSAGES).insertOne(newMsg);
+   return result.acknowledged;
+}

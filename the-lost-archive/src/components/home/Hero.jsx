@@ -11,6 +11,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import Link from 'next/link';
 
 const Hero = () => {
   const slides = [
@@ -78,12 +79,11 @@ const Hero = () => {
                   </p>
 
                   <div className="flex flex-wrap justify-center gap-6">
-                    <button className="btn btn-primary px-8 rounded-none border-none hover:bg-primary-focus transition-all">
+                    <Link href={"/ExploreArticles"}>
+                      <button className="btn btn-outline text-white border-white rounded-none hover:bg-white hover:text-black">
                       {slide.cta}
-                    </button>
-                    <button className="btn btn-outline text-white border-white rounded-none hover:bg-white hover:text-black">
-                      View Records
-                    </button>
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -107,7 +107,7 @@ const Hero = () => {
           opacity: 0.5;
         }
         .swiper-pagination-bullet-active {
-          background: #d4d4d8 !important; /* Stone-300 color */
+          background: #d4d4d8 !important;
           opacity: 1;
         }
       `}</style>

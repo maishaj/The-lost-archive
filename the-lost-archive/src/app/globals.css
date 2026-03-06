@@ -13,24 +13,14 @@
 
 .my-btn {
  
-  background-color: #8ED232;
-  border-color: #8ED232;
+  background-color: #1c1917;
   color: white;
-  padding: 0.5rem 0.9rem;
+  padding: 0.5rem 1rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all;
 }
 
 .my-btn:hover {
-  background-color: #7ab52b;
-  border-color: #7ab52b;
+  background-color: #78350f;
 }
 
-.learn-more {
-  color: #8ED232;
-  font-weight: bold;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
