@@ -29,13 +29,13 @@ npm install
 ### 3. Environment Configuration
 Create a .env.local file in the root directory and add the following variables:
 
-NEXTAUTH_SECRET=your_secret_here
-NEXTAUTH_URL=http://localhost:3000
-GOOGLE_CLIENT_ID=your_id
-GOOGLE_CLIENT_SECRET=your_secret
-DATABASE_URL=your_mongodb_uri
-DB_NAME=your_db_name
-NEXT_PUBLIC_IMGBB_API_KEY=your_imgbb_key
+-**NEXTAUTH_SECRET**=your_secret_here
+-**NEXTAUTH_URL**=http://localhost:3000
+-**GOOGLE_CLIENT_ID**=your_id
+-**GOOGLE_CLIENT_SECRET**=your_secret
+-**DATABASE_URL**=your_mongodb_uri
+-**DB_NAME**=your_db_name
+-**NEXT_PUBLIC_IMGBB_API_KEY**=your_imgbb_key
 
 ### 4. Run the Development Server
 npm run dev
@@ -46,13 +46,15 @@ npm run dev
 
 | Route | Access | Description |
 | :--- | :--- | :--- |
-| `/` | Public | Home: Featured artifacts and trending discoveries. |
-| `/ExploreArticles` | Public | The Vault: Browse the full collection of logged artifacts. |
-| `/ExploreArticles/[id]` | Public | Artifact Detail: Justified text descriptions and deep-dive context. |
-| `/AddArticle` | Private | Archive Entry: Form to submit new artifacts (requires Login). |
-| `/AboutPage` | Public | Mission: The history and purpose of The Lost Archive. |
-| `/Contact` | Public | Correspondence: Get in touch with the lead archivists. |
-| `/api/auth/*` | System | Auth: Handled by NextAuth (Login/Logout/Session). |
+| / | Public | Home: Featured artifacts and trending discoveries. |
+| /ExploreArticles | Public | The Vault: Browse the full collection of logged artifacts. |
+| /ExploreArticles/[id] | Public | Artifact Detail: Justified text descriptions and deep-dive context. |
+| /AddArticle | Private | Archive Entry: Form to submit new artifacts (requires Login). |
+| /login | Public | Authentication: Sign in to your archivist account. |
+| /register | Public | Registration: Create a new account to contribute. |
+| /AboutPage | Public | Mission: The history and purpose of The Lost Archive. |
+| /Contact | Public | Correspondence: Get in touch with the lead archivists. |
+| /api/auth/* | System | Auth: Handled by NextAuth (Login/Logout/Session). |
 
 ---
 
@@ -62,3 +64,5 @@ npm run dev
 - **Database:** MongoDB
 - **Auth:** Next-Auth
 - **Images:** ImgBB API
+- **UI Components:** Swiper.js, React Icons
+- **Notifications:** SweetAlert2 & React Hot Toast
