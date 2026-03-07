@@ -27,15 +27,15 @@ cd The-lost-archive
 npm install
 
 ### 3. Environment Configuration
-Create a .env.local file in the root directory and add the following variables:
+Create a `.env.local` file in the root directory and add the following variables:
 
--**NEXTAUTH_SECRET**=your_secret_here
--**NEXTAUTH_URL**=http://localhost:3000
--**GOOGLE_CLIENT_ID**=your_id
--**GOOGLE_CLIENT_SECRET**=your_secret
--**DATABASE_URL**=your_mongodb_uri
--**DB_NAME**=your_db_name
--**NEXT_PUBLIC_IMGBB_API_KEY**=your_imgbb_key
+NEXTAUTH_SECRET=your_secret_here
+NEXTAUTH_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=your_id
+GOOGLE_CLIENT_SECRET=your_secret
+DATABASE_URL=your_mongodb_uri
+DB_NAME=your_db_name
+NEXT_PUBLIC_IMGBB_API_KEY=your_imgbb_key
 
 ### 4. Run the Development Server
 npm run dev
