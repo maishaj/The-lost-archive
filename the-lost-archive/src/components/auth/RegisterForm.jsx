@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { uploadImageToImgBB } from "@/lib/upload";
 import { Camera, Loader2, UploadCloud } from "lucide-react";
 import Image from "next/image";
@@ -10,7 +10,7 @@ import SocialButton from "./SocialButton";
 import { signIn } from "next-auth/react";
 import toast from "react-hot-toast";
 
-const RegisterForm = () => {
+const RegisterContent = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ text: "", isError: false });
   const [preview, setPreview] = useState(null);
@@ -169,5 +169,11 @@ const RegisterForm = () => {
     </div>
   );
 };
+
+const RegisterForm=()=>{
+   <Suspense fallback={<div className="flex justify-center p-10"><span className="loading loading-ring loading-lg"></span></div>}>
+       <RegisterContent></RegisterContent>
+   </Suspense>
+}
 
 export default RegisterForm;
