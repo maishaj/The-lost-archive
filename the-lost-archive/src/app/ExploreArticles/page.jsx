@@ -1,12 +1,18 @@
 import { getArticles } from '@/actions/server/article';
+import CategorySelector from '@/components/CategorySelector/CategorySelector';
+import SearchInput from '@/components/SearchInput/SearchInput';
 import { ArrowUpRight, Filter, Search } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const ExplorePage = async() => {
+const ExplorePage = async({searchParams}) => {
 
-    const articles=await getArticles();
+
+    const params=await searchParams;
+    const query=params.query || "";
+    const category=params.category || "";
+    const articles=await getArticles(query,category);
 
     return (
       <div className="bg-[#F9F7F2] min-h-screen py-20 px-6">
@@ -26,17 +32,9 @@ const ExplorePage = async() => {
         {/* 2. Search & Filter Bar */}
         <div className="flex flex-col md:flex-row gap-4 mb-12">
           <div className="relative grow group">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 group-focus-within:text-amber-700 transition-colors" size={18} />
-            <input 
-              type="text" 
-              placeholder="Search by accession number or keyword..."
-              className="w-full bg-white border border-stone-200 py-4 pl-12 pr-4 font-serif text-sm focus:outline-none focus:border-stone-900 transition-all shadow-sm"
-            />
+            <SearchInput></SearchInput>
           </div>
-          <button className="flex items-center justify-center gap-2 bg-stone-100 border border-stone-200 px-8 py-4 text-[11px] uppercase tracking-widest font-bold hover:bg-stone-900 hover:text-white transition-all">
-            <Filter size={14} />
-            Category Filter
-          </button>
+          <CategorySelector></CategorySelector>
         </div>
 
         {/* 3. The Grid */}

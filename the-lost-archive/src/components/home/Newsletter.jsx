@@ -1,7 +1,29 @@
 "use client"
-import React from 'react';
+import { newsletter } from '@/actions/server/article';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const Newsletter = () => {
+
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit=async(e)=>{
+       e.preventDefault();
+        setLoading(true);
+
+        const formData=new FormData(e.target);
+        const data = {
+          email: formData.get("email"),
+          createdAt: new Date(),
+        };
+        const success=await newsletter(data);
+        if(success){
+          toast.success("Your will be informed date and time about our further expeditions!");
+          e.target.reset();
+          setLoading(false);
+        }
+      
+    }
 
     return (
       <div className="w-11/12 mx-auto container px-6 py-10">
@@ -21,11 +43,11 @@ const Newsletter = () => {
               cryptographic breakthroughs, delivered to your station once a month.
             </p>
             
-            <form id='newsletter-form' className="flex flex-col md:flex-row gap-6 max-w-md mx-auto pt-4">
+            <form onSubmit={handleSubmit} id='newsletter-form' className="flex flex-col md:flex-row gap-6 max-w-md mx-auto pt-4">
               <input 
                 type="email" 
                 placeholder="Your Email" 
-                className="grow bg-transparent border-b border-stone-700 py-3 px-2 text-[#F5F2ED] focus:outline-none focus:border-amber-600 font-serif transition-all placeholder:text-stone-600"
+                className="grow bg-transparent border-b border-stone-700 py-2 px-2 text-[#F5F2ED] focus:outline-none focus:border-amber-600 font-serif transition-all placeholder:text-stone-600"
               />
               <button className="bg-amber-700 text-[#F5F2ED] px-6 py-2 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-amber-600 hover:scale-105 transition-all duration-300 shadow-lg shadow-amber-950/20">
                 Submit

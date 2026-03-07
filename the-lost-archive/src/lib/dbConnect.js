@@ -16,7 +16,8 @@ export const collections={
     ARTICLES: "articles",
     SUBSCRIBERS:"subscribers",
     USERS:"users",
-    MESSAGES:"messages"
+    MESSAGES:"messages",
+    NEWSLETTER:"newsletter"
 }
 
 export const dbconnect = (cname) => {

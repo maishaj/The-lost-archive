@@ -8,8 +8,22 @@ const formatDocument=(doc)=>{
     return {...doc, _id:doc._id.toString()};
 }
 
-export const getArticles=async()=>{
-    const articles=await dbconnect(collections.ARTICLES).find().toArray();
+export const getArticles=async(query,category)=>{
+
+    let filter={};
+
+    if(query) 
+    {
+        filter.$or=[
+            {title: {$regex:query, $options:'i'}},
+            {accessionNumber: {$regex:query, $options:'i'}}]
+    };
+
+    if(category){
+        filter.category=category;
+    }
+
+    const articles=await dbconnect(collections.ARTICLES).find(filter).toArray();
     return articles.map(formatDocument)
 }
 
@@ -33,6 +47,15 @@ export const postArticles=async(payload)=>{
     }
 
     const result=await dbconnect(collections.ARTICLES).insertOne(newArticle);
+    return result.acknowledged;
+}
+
+export const newsletter=async(payload)=>{
+    const newEmail={
+        ...payload,
+    }
+
+    const result=await dbconnect(collections.NEWSLETTER).insertOne(newEmail);
     return result.acknowledged;
 }
 
