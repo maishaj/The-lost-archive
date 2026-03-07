@@ -29,19 +29,12 @@ npm install
 ### 3. Environment Configuration
 Create a .env.local file in the root directory and add the following variables:
 
-# Authentication
 NEXTAUTH_SECRET=your_secret_here
 NEXTAUTH_URL=http://localhost:3000
-
-# Google Auth (Required for Profile Photos)
 GOOGLE_CLIENT_ID=your_id
 GOOGLE_CLIENT_SECRET=your_secret
-
-# Database
 DATABASE_URL=your_mongodb_uri
 DB_NAME=your_db_name
-
-# External API
 NEXT_PUBLIC_IMGBB_API_KEY=your_imgbb_key
 
 ### 4. Run the Development Server
