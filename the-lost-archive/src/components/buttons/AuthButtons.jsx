@@ -24,7 +24,7 @@ const AuthButtons = () => {
                 </div>
 
                 
-                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow-xl bg-base-100 rounded-box w-40 border border-stone-100">
+                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow-xl bg-base-100 rounded-box w-45 border border-stone-100">
                    
                     <li className="font-bold mb-1">
                         <p className="text-sm truncate">{session.user?.name}</p>

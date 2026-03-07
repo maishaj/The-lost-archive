@@ -3,7 +3,7 @@ import React from 'react';
 
 const AddArticle = () => {
     return (
-        <div className='m-20'>
+        <div className='mt-20 mb-20a'>
             <AddArticleForm></AddArticleForm>
         </div>
     );

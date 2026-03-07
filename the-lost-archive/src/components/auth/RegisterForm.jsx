@@ -63,7 +63,7 @@ const RegisterContent = () => {
   };
 
   return (
-    <div className="bg-white border border-stone-200 p-10 shadow-xl relative mt-10 mb-10">
+    <div className="bg-white border border-stone-200 p-5 shadow-xl relative mt-10 mb-10">
       <header className="mb-8 text-center border-b border-stone-100 pb-6">
         <h2 className="text-3xl font-serif text-stone-900 italic mb-6">
           Register Now
@@ -170,10 +170,10 @@ const RegisterContent = () => {
   );
 };
 
-const RegisterForm=()=>{
+const RegisterForm=()=>(
    <Suspense fallback={<div className="flex justify-center p-10"><span className="loading loading-ring loading-lg"></span></div>}>
        <RegisterContent></RegisterContent>
    </Suspense>
-}
+)
 
 export default RegisterForm;

@@ -17,7 +17,7 @@ const ManageArchive = async () => {
       <div className="max-w-7xl mx-auto">
         <header className="flex justify-between items-end border-b border-stone-300 pb-8 mb-10">
           <div>
-            <h1 className="text-4xl font-serif italic text-stone-900">
+            <h1 className="text-3xl md:text-4xl lg:text-4xl font-serif italic text-stone-900">
               Archive Management
             </h1>
             <p className="text-[10px] uppercase tracking-[0.3em] text-stone-500 font-bold mt-2">
@@ -26,7 +26,7 @@ const ManageArchive = async () => {
           </div>
           <Link
             href="/AddArticle"
-            className="flex items-center gap-2 bg-stone-900 text-white px-6 py-3 text-[10px] uppercase tracking-widest font-bold hover:bg-amber-900 transition-all"
+            className="flex items-center gap-2 bg-stone-900 text-white px-4 py-3 text-[10px] uppercase tracking-widest font-bold hover:bg-amber-900 transition-all"
           >
             <Plus size={14} /> New Entry
           </Link>
@@ -73,7 +73,7 @@ const ManageArchive = async () => {
                           className="w-12 h-12 object-cover grayscale group-hover:grayscale-0 transition-all"
                         />
                         <div>
-                          <p className="font-serif font-bold text-stone-900">
+                          <p className="text-[14px] mb-2 font-serif font-bold text-stone-900">
                             {item.title}
                           </p>
                           <p className="text-[10px] text-amber-800 uppercase tracking-tighter">

@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏺 The Lost Archive
 
-## Getting Started
+A specialized digital repository built with **Next.js** for logging, preserving, and exploring historical artifacts. This application features a curated "Archive Entry" system where users can document discoveries with detailed metadata, visual evidence, and rarity scoring.
 
-First, run the development server:
+---
 
-```bash
+## 🔗 Project Links
+- **Live Deployment:** [the-lost-archive.vercel.app](https://the-lost-archive.vercel.app/)
+- **GitHub Repository:** [github.com/maishaj/The-lost-archive](https://github.com/maishaj/The-lost-archive)
+
+---
+
+## 📖 Project Description
+**The Lost Archive** is a modern archival platform designed to bridge the gap between historical discovery and digital preservation. Using a high-end "documentary" aesthetic, the site allows authorized archivists to log artifacts—ranging from the Bronze Age to modern history—while providing the public with a justified, readable, and SEO-optimized exploration experience.
+
+---
+
+## ⚙️ Setup & Installation
+
+Follow these steps to get your local development environment running:
+
+### 1. Clone the repository
+git clone https://github.com/maishaj/The-lost-archive.git
+cd The-lost-archive
+
+### 2. Install dependencies
+npm install
+
+### 3. Environment Configuration
+Create a .env.local file in the root directory and add the following variables:
+
+# Authentication
+NEXTAUTH_SECRET=your_secret_here
+NEXTAUTH_URL=http://localhost:3000
+
+# Google Auth (Required for Profile Photos)
+GOOGLE_CLIENT_ID=your_id
+GOOGLE_CLIENT_SECRET=your_secret
+
+# Database
+DATABASE_URL=your_mongodb_uri
+DB_NAME=your_db_name
+
+# External API
+NEXT_PUBLIC_IMGBB_API_KEY=your_imgbb_key
+
+### 4. Run the Development Server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🗺 Route Summary
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route | Access | Description |
+| :--- | :--- | :--- |
+| `/` | Public | Home: Featured artifacts and trending discoveries. |
+| `/ExploreArticles` | Public | The Vault: Browse the full collection of logged artifacts. |
+| `/ExploreArticles/[id]` | Public | Artifact Detail: Justified text descriptions and deep-dive context. |
+| `/AddArticle` | Private | Archive Entry: Form to submit new artifacts (requires Login). |
+| `/AboutPage` | Public | Mission: The history and purpose of The Lost Archive. |
+| `/Contact` | Public | Correspondence: Get in touch with the lead archivists. |
+| `/api/auth/*` | System | Auth: Handled by NextAuth (Login/Logout/Session). |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠 Tech Stack
+- **Framework:** Next.js (App Router)
+- **Styling:** Tailwind CSS + DaisyUI
+- **Database:** MongoDB
+- **Auth:** Next-Auth
+- **Images:** ImgBB API

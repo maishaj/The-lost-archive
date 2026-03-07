@@ -27,15 +27,15 @@ const LoginContent = () => {
         const result = await signIn('credentials', { 
             email: email,
             password: password,
-            callbackUrl: callBack, // used the variable here
-            redirect: true // usually you want this true or handle it manually
+            callbackUrl: callBack, 
+            redirect: true
         });
 
-        if (!result?.ok) {
-            toast.error("You provided wrong credentials!");
+        if (result?.ok) {
+            toast.success("You logged in successfully!");
             setLoading(false);
         } else {
-            toast.success("You logged in successfully!");
+            toast.error("You provided wrong credentials!");
             setLoading(false);
         }
     };
@@ -50,7 +50,7 @@ const LoginContent = () => {
             </header>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-5 max-w-md mx-auto">
+                <div className="space-y-5 max-w-xl mx-auto">
                     <div>
                         <label className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1 block">Email</label>
                         <input name="email" type="email" required className="w-full bg-transparent border-b border-stone-300 py-2 focus:outline-none focus:border-amber-700 font-serif transition-colors" />

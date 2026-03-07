@@ -28,7 +28,7 @@ const ArticleDetails = async({params}) => {
               alt={article.title}
               width={500}
               height={500}
-              className="w-full h-auto grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+              className="w-full h-auto grayscale-20% hover:grayscale-0 transition-all duration-700"
             />
             {/* Accession Tag Overlay */}
             <div className="absolute top-6 right-6 bg-stone-900 text-[#F5F2ED] px-4 py-2 text-[10px] tracking-widest uppercase">
@@ -37,11 +37,11 @@ const ArticleDetails = async({params}) => {
           </div>
           
           <div className="mt-8 grid grid-cols-2 gap-4 border-t border-stone-200 pt-8">
-            <div className="flex items-center gap-3 text-stone-500">
+            <div className="flex gap-3 text-stone-500 justify-center items-center">
               <ShieldCheck size={18} />
               <span className="text-xs uppercase tracking-wider font-serif italic">Authenticity Verified</span>
             </div>
-            <div className="flex items-center gap-3 text-stone-500">
+            <div className="flex justify-center items-center gap-3 text-stone-500">
               <Lock size={18} />
               <span className="text-xs uppercase tracking-wider font-serif italic">Classified Content</span>
             </div>
@@ -72,7 +72,7 @@ const ArticleDetails = async({params}) => {
 
             <div>
               <h3 className="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-3">Technical Description</h3>
-              <p className="text-stone-700 font-serif leading-relaxed">
+              <p className="text-stone-700 font-serif leading-relaxed text-justify">
                 {article.description}
               </p>
             </div>
@@ -81,7 +81,7 @@ const ArticleDetails = async({params}) => {
           {/* Action Area */}
           <div className="mt-12 mb-5 pt-8 border-t border-stone-300 space-y-4">
            <Link href={"/ExploreArticles"}>
-              <button className="w-full bg-stone-900 text-[#F5F2ED] py-5 text-[10px] uppercase tracking-[0.4em] font-bold hover:bg-amber-950 transition-all shadow-xl">
+              <button className="w-full bg-stone-900 text-[#F5F2ED] py-4 text-[10px] uppercase tracking-[0.4em] font-bold hover:bg-amber-950 transition-all shadow-xl">
               Back to Explore
               </button>
            </Link>

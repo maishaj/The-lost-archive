@@ -8,8 +8,8 @@ const Logo = () => {
       <Image
         alt="lost-archive-logo"
         src={"/assets/logo.ico"}
-        width={40}
-        height={40}
+        width={30}
+        height={30}
         style={{height: 'auto' }}
         priority
       ></Image>
