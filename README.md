@@ -53,7 +53,6 @@
 Main dependencies used:
 
 - next-auth
-- axios
 - react-hot-toast
 - sweetalert2
 - react-icons
