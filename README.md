@@ -26,10 +26,15 @@
 - Detailed artifact information
 - Search and filter artifacts
 
-### 📝 Submission System
+### 📝 Addition of Artifacts
 - Authorized users can submit new artifacts
 - Upload artifact images
 - Add metadata and descriptions
+
+### 🗂 Manage Artifacts
+- Users can view all artifacts they added
+- Delete artifacts they no longer want on the platform
+- Easy management from a personal dashboard
 
 ### 📄 Artifact Details
 - Detailed metadata including era, origin, and description
