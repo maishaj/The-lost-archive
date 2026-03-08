@@ -1,36 +1,66 @@
 # 🏺 The Lost Archive
 
-A specialized digital repository built with **Next.js** for logging, preserving, and exploring historical artifacts.  
-The platform features a curated **Archive Entry System** where users can document discoveries with detailed metadata, visual evidence, and rarity scoring.
+## 📌 Project Overview
+
+**The Lost Archive** is a full-stack Next.js digital archive platform for logging, preserving, and exploring historical artifacts. Users can browse artifacts, view detailed descriptions, and authorized contributors can submit new artifacts. Admins oversee platform activities through a secure role-based system.
 
 ---
 
-# 🔗 Project Links
-- 🌐 **Live Deployment:** https://the-lost-archive.vercel.app/
-- 💻 **GitHub Repository:** https://github.com/maishaj/The-lost-archive
+## 🔗 Project Links
 
----
-
-# 📖 Project Description
-**The Lost Archive** is a modern archival platform designed to bridge the gap between **historical discovery and digital preservation**.
-
-Using a high-end **documentary-style aesthetic**, the platform allows authorized archivists to log artifacts—ranging from the **Bronze Age to modern history**—while providing the public with an SEO-optimized exploration experience.
-
-Users can explore artifacts, view detailed historical descriptions, and contribute new discoveries through a protected submission system.
+- **Live Site:** https://the-lost-archive.vercel.app
+- **GitHub Repository:** https://github.com/maishaj/The-lost-archive
 
 ---
 
 # ✨ Key Features
 
-- 🏺 Explore a digital archive of historical artifacts
-- 🔎 SEO-optimized artifact browsing
-- 📜 Detailed artifact profiles with metadata
-- 🖼 Image upload using **ImgBB API**
-- 🔐 Secure authentication with **NextAuth**
-- 🔑 Google OAuth login support
-- 📝 Protected artifact submission system
-- 📱 Fully responsive modern UI
-- ⚡ Fast performance using **Next.js App Router**
+### 👤 Authentication
+- Email & Password login
+- Google OAuth login
+- NextAuth authentication
+- Protected routes
+
+### 🏺 Archive Exploration
+- Browse artifacts by category
+- Detailed artifact information
+- Search and filter artifacts
+
+### 📝 Submission System
+- Authorized users can submit new artifacts
+- Upload artifact images
+- Add metadata and descriptions
+
+### 📄 Artifact Details
+- Detailed metadata including era, origin, and description
+- Image galleries for each artifact
+- SEO-optimized pages
+
+---
+
+# 🛠 Main Technologies
+
+- Next.js(App Router)
+- Tailwind CSS
+- DaisyUI
+- MongoDB
+- NextAuth Authentication
+
+---
+
+# 📦 Dependencies
+
+Main dependencies used:
+
+- next-auth
+- axios
+- react-hot-toast
+- sweetalert2
+- react-icons
+- tailwindcss
+- daisyui
+- ImgBB API
+- Swiper.js
 
 ---
 
@@ -101,26 +131,37 @@ http://localhost:3000
 
 ---
 
-# 🛠 Tech Stack
+## 📸 Project Screenshots
 
-### Frontend
-- **Next.js (App Router)**
-- **React**
-- **Tailwind CSS**
-- **DaisyUI**
+### 🏠 Home Page
+![Home 1](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive1.png)
+![Home 2](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive2.png)
+![Home 3](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive3.png)
+![Home 4](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive4.png)
+![Home 5](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive5.png)
 
-### Backend & Database
-- **MongoDB**
-- **NextAuth Authentication**
+### 🔎 Browse Artifacts
+![Browse 1](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive6.png)
+![Browse 2](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive21.png)
 
-### APIs & Libraries
-- **ImgBB API** – Image hosting
-- **Swiper.js** – Sliders
-- **React Icons** – Icons
-- **SweetAlert2** – Alerts
-- **React Hot Toast** – Notifications
+### 📄 Artifact Details
+![Details 1](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive22.png)
+![Details 2](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive23.png)
 
----
+### 📝 About Page
+![About Page 1](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive7.png)
+![About Page 2](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive8.png)
+![About Page 3](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive9.png)
+
+### 📝 Contact Us
+![Contact Us](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive10.png)
+
+### 📝 Add Artifact
+![Add Artifact](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive11.png)
+
+### 📝 Manage Artifact
+![Manage Artifact](https://github.com/maishaj/The-lost-archive/blob/main/the-lost-archive/src/screenshots/lostarchive12.png)
+
 
 # 👩‍💻 Author
 
