@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview
 
-**The Lost Archive** is a full-stack Next.js digital archive platform for logging, preserving, and exploring historical artifacts. Users can browse artifacts, view detailed descriptions, and authorized contributors can submit new artifacts. Admins oversee platform activities through a secure role-based system.
+**The Lost Archive** is a full-stack Next.js digital archive platform for logging, preserving, and exploring historical artifacts. Users can browse artifacts, view detailed descriptions, and authorized contributors can submit new artifacts. It’s a place where history fans and researchers can find rare artifacts, read their stories, and add new discoveries to the collection. By blending high-performance Next.js architecture with a narrative-driven design, the platform ensures that every piece of history is not only securely stored but also beautifully presented for a global audience.
 
 ---
 
